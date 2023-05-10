@@ -1,4 +1,5 @@
 import 'package:eldepizza/constants.dart';
+import 'package:eldepizza/screens/Sign_in/sign_in_screen.dart';
 import 'package:eldepizza/size_config.dart';
 import 'package:flutter/material.dart';
 
@@ -107,16 +108,19 @@ class _BodyState extends State<Body> {
                         child: SizedBox(
                           width: double.infinity,
                           height: getProportionateScreenHeight(56),
-                          child: ElevatedButton(
+                          child: TextButton(
                               style: ButtonStyle(
                                 backgroundColor: MaterialStateProperty.all(const Color(0xFFF62D00))
                               ),
-                              onPressed: (){},
+                              onPressed: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=> const SignInScreen()),);
+                              },
                               child: const Text(
                                   'Lets Get Started',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 24,
+                                    color: Colors.white,
                                   ),
                               ),
                           ),
