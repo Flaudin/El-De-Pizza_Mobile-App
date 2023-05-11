@@ -1,16 +1,16 @@
-import 'package:eldepizza/screens/Sign_in/components/body.dart';
+import 'package:eldepizza/screens/forgot_password/components/body.dart';
 import 'package:flutter/material.dart';
 
-class SignInScreen extends StatelessWidget {
-  static String routeName = "/sign_in";
-  const SignInScreen({Key? key}) : super(key: key);
+class ForgortPasswordScreen extends StatelessWidget {
+  const ForgortPasswordScreen({super.key});
+  static String routeName = '/forgot_password';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Sign in',
+          'Forgot Password',
           style: TextStyle(
             color: Colors.black,
             fontSize: 18,
