@@ -18,7 +18,7 @@ class _BodyState extends State<Body> {
       child: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('android/assets/images/onScreenBg.png'),
+            image: AssetImage('android/assets/images/BG.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -31,7 +31,7 @@ class _BodyState extends State<Body> {
                 flex: 3,
                 child: Column(
                   children: <Widget>[
-                    Image.asset('android/assets/images/logo.png', width: 84)
+                    Image.asset('android/assets/images/logo.png', width: 92)
                   ],
                 ),
               ),

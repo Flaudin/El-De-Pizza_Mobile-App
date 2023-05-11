@@ -20,20 +20,20 @@ class _SignUpFormState extends State<SignUpForm> {
   String? password;
   String? conform_password;
   bool remember = false;
-  final List<String?> errors = [];
+  final List<String> errores = [];
 
   void addError({String? error}) {
-    if (!errors.contains(error)) {
+    if (!errores.contains(error)) {
       setState(() {
-        errors.add(error);
+        errores.add(error!);
       });
     }
   }
 
   void removeError({String? error}) {
-    if (errors.contains(error)) {
+    if (errores.contains(error)) {
       setState(() {
-        errors.remove(error);
+        errores.remove(error);
       });
     }
   }
@@ -49,14 +49,13 @@ class _SignUpFormState extends State<SignUpForm> {
           buildPasswordFormField(),
           SizedBox(height: getProportionateScreenHeight(30)),
           buildConformPassFormField(),
-          //FormError(errors: errors),
+          FormError(errors: errores),
           SizedBox(height: getProportionateScreenHeight(40)),
           DefaultButton(
             text: "Continue",
             press: () {
               if (formKey.currentState!.validate()) {
                 formKey.currentState!.save();
-                // if all are valid then go to success screen
                 Navigator.pushNamed(context, ProfileScreen.routeName);
               }
             },
@@ -88,13 +87,24 @@ class _SignUpFormState extends State<SignUpForm> {
         }
         return null;
       },
-      decoration: const InputDecoration(
+      decoration: InputDecoration(
         labelText: "Confirm Password",
         hintText: "Re-enter your password",
-        // If  you are using latest version of flutter then lable text and hint text shown like this
-        // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
+        suffixIcon:
+            const CustomSurffixIcon(svgIcon: "android/assets/icons/Lock.svg"),
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 42, vertical: 20),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(28),
+          borderSide: const BorderSide(color: kTextColor),
+          gapPadding: 10,
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(28),
+          borderSide: const BorderSide(color: kTextColor),
+          gapPadding: 10,
+        ),
       ),
     );
   }
@@ -121,13 +131,24 @@ class _SignUpFormState extends State<SignUpForm> {
         }
         return null;
       },
-      decoration: const InputDecoration(
+      decoration: InputDecoration(
         labelText: "Password",
         hintText: "Enter your password",
-        // If  you are using latest version of flutter then lable text and hint text shown like this
-        // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
+        suffixIcon:
+            const CustomSurffixIcon(svgIcon: "android/assets/icons/Lock.svg"),
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 42, vertical: 20),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(28),
+          borderSide: const BorderSide(color: kTextColor),
+          gapPadding: 10,
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(28),
+          borderSide: const BorderSide(color: kTextColor),
+          gapPadding: 10,
+        ),
       ),
     );
   }
@@ -154,13 +175,24 @@ class _SignUpFormState extends State<SignUpForm> {
         }
         return null;
       },
-      decoration: const InputDecoration(
+      decoration: InputDecoration(
         labelText: "Email",
         hintText: "Enter your email",
-        // If  you are using latest version of flutter then lable text and hint text shown like this
-        // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Mail.svg"),
+        suffixIcon:
+            const CustomSurffixIcon(svgIcon: "android/assets/icons/Mail.svg"),
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 42, vertical: 20),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(28),
+          borderSide: const BorderSide(color: kTextColor),
+          gapPadding: 10,
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(28),
+          borderSide: const BorderSide(color: kTextColor),
+          gapPadding: 10,
+        ),
       ),
     );
   }

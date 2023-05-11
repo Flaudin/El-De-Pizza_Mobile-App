@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:eldepizza/constants.dart';
 import '../../../helpie/keyboard.dart';
 import '../../../size_config.dart';
+import '../../home/home_screen.dart';
 
 class SignForm extends StatefulWidget {
   final String mail;
@@ -83,6 +84,7 @@ class _SignFormState extends State<SignForm> {
               if (formKey.currentState!.validate()) {
                 formKey.currentState!.save();
                 KeyboardUtil.hideKeyboard(context);
+                Navigator.pushNamed(context, HomeScreen.routeName);
               }
             },
           ),
