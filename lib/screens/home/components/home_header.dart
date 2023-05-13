@@ -1,5 +1,6 @@
-import 'package:eldepizza/components/default_button.dart';
+//import 'package:eldepizza/components/default_button.dart';
 import 'package:eldepizza/screens/home/components/search_field.dart';
+import 'package:eldepizza/screens/home/components/search_suggest.dart';
 import 'package:eldepizza/size_config.dart';
 import 'package:flutter/material.dart';
 
@@ -52,8 +53,8 @@ class HomeHeader extends StatelessWidget {
                     ]),
               ),
               IconBtnWithCounter(
-                svgSrc: "android/assets/icons/Bell.svg",
-                numOfitem: 3,
+                svgSrc: "android/assets/icons/Doorbell.png",
+                numOfitem: 2,
                 press: () {},
               ),
             ],
@@ -63,9 +64,10 @@ class HomeHeader extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: const [
               SearchField(),
-              ButtonBar(),
             ],
           ),
+          SizedBox(height: getProportionateScreenHeight(10)),
+          const SearchSuggest(),
         ],
       ),
     );

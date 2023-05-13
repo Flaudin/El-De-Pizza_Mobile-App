@@ -15,47 +15,46 @@ class Body extends StatelessWidget {
       child: Padding(
         padding:
             EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(24)),
-        child: Column(
-          children: <Widget>[
-            SizedBox(height: SizeConfig.screenHeight * 0.04),
-            const Text(
-              'Welcome Back',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 28.0,
-                fontWeight: FontWeight.bold,
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              SizedBox(height: SizeConfig.screenHeight * 0.04),
+              const Text(
+                'Welcome Back',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 28.0,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            const Text(
-              'Sign in with your email and password \nor continue with social media.',
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: SizeConfig.screenHeight * 0.08),
-            const SignForm(
-              mail: '',
-              pass: '',
-            ),
-            SizedBox(height: SizeConfig.screenHeight * 0.08),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SocialCard(
-                  icon: 'android/assets/icons/google-icon.svg',
-                  press: () {},
-                ),
-                SocialCard(
-                  icon: 'android/assets/icons/facebook-2.svg',
-                  press: () {},
-                ),
-                SocialCard(
-                  icon: 'android/assets/icons/twitter.svg',
-                  press: () {},
-                ),
-              ],
-            ),
-            SizedBox(height: getProportionateScreenHeight(20)),
-            const NoAccount(),
-          ],
+              const Text(
+                'Sign in with your email and password \nor continue with social media.',
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: SizeConfig.screenHeight * 0.08),
+              const SignForm(),
+              SizedBox(height: SizeConfig.screenHeight * 0.08),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SocialCard(
+                    icon: 'android/assets/icons/google-icon.svg',
+                    press: () {},
+                  ),
+                  SocialCard(
+                    icon: 'android/assets/icons/facebook-2.svg',
+                    press: () {},
+                  ),
+                  SocialCard(
+                    icon: 'android/assets/icons/twitter.svg',
+                    press: () {},
+                  ),
+                ],
+              ),
+              SizedBox(height: getProportionateScreenHeight(20)),
+              const NoAccount(),
+            ],
+          ),
         ),
       ),
     ));

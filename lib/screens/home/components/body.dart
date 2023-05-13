@@ -5,6 +5,8 @@ import 'package:eldepizza/screens/home/components/product_banner.dart';
 import 'package:eldepizza/size_config.dart';
 import 'package:flutter/material.dart';
 
+import 'new_products.dart';
+
 class Body extends StatelessWidget {
   const Body({super.key});
 
@@ -23,7 +25,7 @@ class Body extends StatelessWidget {
           SizedBox(height: getProportionateScreenHeight(20)),
           const BestSellingProducts(),
           SizedBox(height: getProportionateScreenHeight(20)),
-          const BestSellingProducts(),
+          const NewProducts(),
           SizedBox(height: getProportionateScreenHeight(20)),
         ],
       ),

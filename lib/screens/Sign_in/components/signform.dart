@@ -2,6 +2,7 @@ import 'package:eldepizza/components/custom_button_icons.dart';
 import 'package:eldepizza/components/default_button.dart';
 import 'package:eldepizza/components/form_error.dart';
 import 'package:eldepizza/screens/forgot_password/forgot_password.dart';
+//import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:eldepizza/constants.dart';
 import '../../../helpie/keyboard.dart';
@@ -9,13 +10,7 @@ import '../../../size_config.dart';
 import '../../home/home_screen.dart';
 
 class SignForm extends StatefulWidget {
-  final String mail;
-  final String pass;
-  const SignForm({
-    Key? key,
-    required this.mail,
-    required this.pass,
-  }) : super(key: key);
+  const SignForm({Key? key}) : super(key: key);
 
   @override
   State<SignForm> createState() => _SignFormState();
@@ -23,25 +18,24 @@ class SignForm extends StatefulWidget {
 
 class _SignFormState extends State<SignForm> {
   final formKey = GlobalKey<FormState>();
+  //final FirebaseAuth _auth = FirebaseAuth.instance;
   String? email;
   String? pass;
   bool? remember = false;
   final List<String> errors = [];
 
   void addError({String? error}) {
-    if (!errors.contains(error)) {
+    if (!errors.contains(error))
       setState(() {
         errors.add(error!);
       });
-    }
   }
 
   void removeError({String? error}) {
-    if (!errors.contains(error)) {
+    if (errors.contains(error))
       setState(() {
-        errors.remove(error!);
+        errors.remove(error);
       });
-    }
   }
 
   @override
@@ -81,9 +75,11 @@ class _SignFormState extends State<SignForm> {
           DefaultButton(
             text: 'Continue',
             press: () {
-              if (formKey.currentState!.validate()) {
+              if (formKey.currentState != null &&
+                  formKey.currentState!.validate()) {
                 formKey.currentState!.save();
                 KeyboardUtil.hideKeyboard(context);
+                //signInWithEmailAndPassword(email!, pass!);
                 Navigator.pushNamed(context, HomeScreen.routeName);
               }
             },
@@ -97,6 +93,25 @@ class _SignFormState extends State<SignForm> {
     return TextFormField(
       keyboardType: TextInputType.visiblePassword,
       obscureText: true,
+      onSaved: (newValue) => pass = newValue,
+      onChanged: (value) {
+        if (value.isNotEmpty) {
+          removeError(error: kPassNullError);
+        } else if (value.length >= 8) {
+          removeError(error: kShortPassError);
+        }
+        return null;
+      },
+      validator: (value) {
+        if (value!.isEmpty) {
+          addError(error: kPassNullError);
+          return "";
+        } else if (value.length < 8) {
+          addError(error: kShortPassError);
+          return "";
+        }
+        return null;
+      },
       decoration: InputDecoration(
         hintText: 'Enter your password.',
         labelText: 'Password',
@@ -123,11 +138,19 @@ class _SignFormState extends State<SignForm> {
     return TextFormField(
       keyboardType: TextInputType.emailAddress,
       onSaved: (newValue) => email = newValue,
+      onChanged: (value) {
+        if (value.isNotEmpty) {
+          removeError(error: kEmailNullError);
+        } else if (emailValidatorRegExp.hasMatch(value)) {
+          removeError(error: kInvalidEmailError);
+        }
+      },
       validator: (value) {
         if (value!.isEmpty) {
-          setState(() {
-            errors.add('Please enter email!');
-          });
+          addError(error: kEmailNullError);
+        } else if (!emailValidatorRegExp.hasMatch(value)) {
+          addError(error: kInvalidEmailError);
+          return "";
         }
         return null;
       },
@@ -152,4 +175,41 @@ class _SignFormState extends State<SignForm> {
       ),
     );
   }
+
+  // Future<void> signInWithEmailAndPassword( String email, String password) async {
+  //   try{
+  //     UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+  //       email: email,
+  //       password:password,
+  //     );
+
+  //     User? user = userCredential.user;
+  //     if (user !=null){
+  //       String? displayName = user.displayName;
+  //       String? email = user.email;
+  //       String? photoURL = user.photoURL;
+  //     }
+
+  //     Navigator.pushNamed(context, HomeScreen.routeName);
+  //   }
+  //   catch(e){
+  //     print('Sign-in error: $e');
+  //     if (e is FirebaseAuthException) {
+  //       FirebaseAuthException authException = e;
+  //       print('Sign-in error: ${authException.code} - ${authException.message}');
+
+  //       // Display appropriate error messages to the user
+  //       if (authException.code == 'user-not-found') {
+  //         addError(error: 'User not found.');
+  //       } else if (authException.code == 'wrong-password') {
+  //         addError(error: 'Wrong password.');
+  //       } else {
+  //         addError(error: 'Sign-in failed. Please try again later.');
+  //       }
+  //     } else {
+  //       print('Unknown sign-in error: $e');
+  //       addError(error: 'An unknown error occurred. Please try again later.');
+  //     }
+  //     }
+  //   }
 }

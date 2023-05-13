@@ -1,7 +1,15 @@
+// ignore: unused_import
 import 'package:eldepizza/constants.dart';
+import 'package:eldepizza/screens/home/home_screen.dart';
+import 'package:eldepizza/size_config.dart';
 import 'package:flutter/material.dart';
+// ignore: unused_import
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../enum.dart';
+import '../screens/cart/cart_screen.dart';
+import '../screens/favorite/favorite_screen.dart';
+import '../screens/profile/profile_screen.dart';
 
 class CustomBottomNav extends StatelessWidget {
   const CustomBottomNav({
@@ -13,6 +21,7 @@ class CustomBottomNav extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: prefer_const_constructors
     final Color inActiveIconColor = Color(0xFFB6B6B6);
     return Container(
         padding: const EdgeInsets.symmetric(vertical: 14),
@@ -36,30 +45,45 @@ class CustomBottomNav extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.local_pizza),
+                tooltip: 'Home',
+                onPressed: () {
+                  Navigator.pushNamed(context, HomeScreen.routeName);
+                },
+                icon: Image.asset(
+                  "android/assets/icons/Pizza.png",
+                  width: getProportionateScreenWidth(24),
+                ),
                 color: MenuState.home == selectedMenu
                     ? Colors.white
                     : inActiveIconColor,
               ),
               IconButton(
-                onPressed: () {},
+                tooltip: 'Favorite',
+                onPressed: () {
+                  Navigator.pushNamed(context, FavoriteScreen.routeName);
+                },
                 icon: const Icon(Icons.favorite),
-                color: MenuState.home == selectedMenu
+                color: MenuState.favorite == selectedMenu
                     ? Colors.white
                     : inActiveIconColor,
               ),
               IconButton(
-                onPressed: () {},
+                tooltip: 'Cart',
+                onPressed: () {
+                  Navigator.pushNamed(context, CartScreen.routeName);
+                },
                 icon: const Icon(Icons.shopping_cart),
-                color: MenuState.home == selectedMenu
+                color: MenuState.cart == selectedMenu
                     ? Colors.white
                     : inActiveIconColor,
               ),
               IconButton(
-                onPressed: () {},
+                tooltip: 'Profile',
+                onPressed: () {
+                  Navigator.pushNamed(context, ProfileScreen.routeName);
+                },
                 icon: const Icon(Icons.person),
-                color: MenuState.home == selectedMenu
+                color: MenuState.profile == selectedMenu
                     ? Colors.white
                     : inActiveIconColor,
               ),

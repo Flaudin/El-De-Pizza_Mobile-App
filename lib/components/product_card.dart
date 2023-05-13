@@ -1,5 +1,6 @@
 import 'package:eldepizza/constants.dart';
 import 'package:eldepizza/models/Product.dart';
+import 'package:eldepizza/screens/productpage/product_page_screen.dart';
 import 'package:eldepizza/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -22,7 +23,9 @@ class ProductCard extends StatelessWidget {
       child: SizedBox(
         width: getProportionateScreenWidth(width),
         child: GestureDetector(
-          onTap: () {},
+          onTap: () {
+            Navigator.pushNamed(context, ProductPageScreen.routeName);
+          },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -71,6 +74,7 @@ class ProductCard extends StatelessWidget {
                       ),
                       child: SvgPicture.asset(
                         "android/assets/icons/Heart Icon_2.svg",
+                        // ignore: deprecated_member_use
                         color: product.isFavourite
                             ? const Color(0xFFFF4848)
                             : const Color(0xFFDBDEE4),
