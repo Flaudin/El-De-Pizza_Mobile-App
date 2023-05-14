@@ -6,6 +6,15 @@ class ProductPageScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Product Page",
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
+      ),
+    );
   }
 }
