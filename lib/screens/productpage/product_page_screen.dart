@@ -1,3 +1,4 @@
+import 'package:eldepizza/screens/productpage/components/body.dart';
 import 'package:flutter/material.dart';
 
 class ProductPageScreen extends StatelessWidget {
@@ -6,15 +7,8 @@ class ProductPageScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Product Page",
-          style: TextStyle(
-            color: Colors.black,
-          ),
-        ),
-      ),
+    return const Scaffold(
+      body: Body(),
     );
   }
 }
