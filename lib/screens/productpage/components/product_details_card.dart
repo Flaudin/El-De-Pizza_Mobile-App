@@ -13,11 +13,12 @@ class ProductDetailsCard extends StatelessWidget {
     return Positioned(
       top: getProportionateScreenHeight(160),
       child: Padding(
-        padding:
-            EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(17)),
+        padding: EdgeInsets.symmetric(
+            horizontal: getProportionateScreenWidth(17),
+            vertical: getProportionateScreenHeight(2)),
         child: GlassContainer(
           width: getProportionateScreenWidth(340),
-          height: getProportionateScreenHeight(193),
+          height: getProportionateScreenHeight(198),
           color: const Color(0xFF777777).withOpacity(0.4),
           blur: 10,
           borderRadius: BorderRadius.circular(18),
@@ -92,7 +93,8 @@ class ProductDetailsCard extends StatelessWidget {
                               color: Colors.white),
                         )
                       ],
-                    )
+                    ),
+                    SizedBox(height: getProportionateScreenHeight(8)),
                   ],
                 ),
               ),

@@ -26,7 +26,7 @@ class SizeCard extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(
                 horizontal: getProportionateScreenWidth(10),
-                vertical: getProportionateScreenWidth(3)),
+                vertical: getProportionateScreenWidth(3.5)),
             child: Image.asset(image),
           ),
           Text(size)

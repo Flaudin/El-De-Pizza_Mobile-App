@@ -11,9 +11,6 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Profile'),
-      ),
       body: Body(),
       bottomNavigationBar:
           const CustomBottomNav(selectedMenu: MenuState.profile),

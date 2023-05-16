@@ -25,6 +25,7 @@ class CustomBottomNav extends StatelessWidget {
     final Color inActiveIconColor = Color(0xFFB6B6B6);
     return Container(
         padding: const EdgeInsets.symmetric(vertical: 14),
+        height: getProportionateScreenHeight(60),
         decoration: BoxDecoration(
           color: const Color(0xFF313133),
           boxShadow: [
@@ -51,8 +52,8 @@ class CustomBottomNav extends StatelessWidget {
                 },
                 icon: Image.asset(
                   "android/assets/icons/Pizza.png",
-                  width: getProportionateScreenWidth(24),
                 ),
+                iconSize: 30,
                 color: MenuState.home == selectedMenu
                     ? Colors.white
                     : inActiveIconColor,

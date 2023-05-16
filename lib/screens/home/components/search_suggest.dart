@@ -46,12 +46,12 @@ class SuggestionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: getProportionateScreenWidth(4)),
+      padding: EdgeInsets.only(left: getProportionateScreenWidth(6)),
       child: GestureDetector(
         onTap: press,
         child: SizedBox(
           height: getProportionateScreenWidth(25),
-          width: getProportionateScreenWidth(168),
+          width: getProportionateScreenWidth(148),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: Stack(
@@ -65,8 +65,8 @@ class SuggestionCard extends StatelessWidget {
                 Center(
                   child: Padding(
                     padding: EdgeInsets.symmetric(
-                        horizontal: getProportionateScreenWidth(24),
-                        vertical: getProportionateScreenWidth(6)),
+                        horizontal: getProportionateScreenWidth(2),
+                        vertical: getProportionateScreenWidth(4)),
                     child: Text(
                       '$suggestions',
                       style: const TextStyle(color: Colors.white, fontSize: 14),
