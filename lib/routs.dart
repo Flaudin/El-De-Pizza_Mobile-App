@@ -2,6 +2,7 @@ import 'package:eldepizza/screens/Sign_in/sign_in_screen.dart';
 import 'package:eldepizza/screens/Sign_up/sign_up_screen.dart';
 import 'package:eldepizza/screens/Splash/onboardScreen.dart';
 import 'package:eldepizza/screens/cart/cart_screen.dart';
+import 'package:eldepizza/screens/checkout/checkout_screen.dart';
 import 'package:eldepizza/screens/favorite/favorite_screen.dart';
 import 'package:eldepizza/screens/forgot_password/forgot_password.dart';
 import 'package:eldepizza/screens/home/home_screen.dart';
@@ -19,4 +20,5 @@ final Map<String, WidgetBuilder> routes = {
   FavoriteScreen.routeName: (context) => const FavoriteScreen(),
   CartScreen.routeName: (context) => const CartScreen(),
   ProductPageScreen.routeName: (context) => const ProductPageScreen(),
+  CheckoutScreen.routeName: (context) => const CheckoutScreen(),
 };

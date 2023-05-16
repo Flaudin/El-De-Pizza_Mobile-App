@@ -1,25 +1,13 @@
+import 'package:eldepizza/components/default_button.dart';
+import 'package:eldepizza/screens/productpage/components/quantity_counter.dart';
 import 'package:eldepizza/screens/productpage/components/size_card.dart';
 import 'package:eldepizza/size_config.dart';
 import 'package:flutter/material.dart';
 
 class ProductCustomize extends StatelessWidget {
-  void _incrementCounter() {
-    setState(() {
-      quantity++;
-    });
-  }
-
-  void _decrementCounter() {
-    setState(() {
-      quantity--;
-    });
-  }
-
   const ProductCustomize({
     super.key,
   });
-
-  final int quantity = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -85,33 +73,12 @@ class ProductCustomize extends StatelessWidget {
                   fontWeight: FontWeight.normal,
                   color: Colors.black)),
           SizedBox(height: getProportionateScreenHeight(16)),
-          Row(
-            children: [
-              IconButton(
-                  onPressed: _decrementCounter,
-                  icon: const Icon(
-                    Icons.remove_circle_outline,
-                    color: Colors.black,
-                  )),
-              SizedBox(
-                width: getProportionateScreenWidth(20),
-              ),
-              Text(
-                '$quantity',
-                style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black),
-              ),
-              IconButton(
-                onPressed: _incrementCounter,
-                icon: const Icon(
-                  Icons.add_circle_outline,
-                  color: Colors.black,
-                ),
-              ),
-            ],
-          )
+          const QuantityCounter(),
+          SizedBox(height: getProportionateScreenHeight(16)),
+          DefaultButton(
+            text: 'Order Now',
+            press: () {},
+          ),
         ]),
       ),
     );

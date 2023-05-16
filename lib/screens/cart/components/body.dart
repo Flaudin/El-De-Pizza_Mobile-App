@@ -1,4 +1,5 @@
 import 'package:dotted_border/dotted_border.dart';
+import 'package:eldepizza/screens/checkout/checkout_screen.dart';
 import 'package:eldepizza/size_config.dart';
 import 'package:flutter/material.dart';
 
@@ -33,8 +34,9 @@ class Body extends StatelessWidget {
             )
           ]),
         ),
-        SizedBox(height: getProportionateScreenHeight(240)),
-        const CartCheckDesc()
+        const Spacer(),
+        const CartCheckDesc(),
+        SizedBox(height: getProportionateScreenHeight(10)),
       ],
     );
   }
@@ -55,8 +57,8 @@ class CartCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: getProportionateScreenHeight(320),
-      height: getProportionateScreenHeight(132),
+      width: double.infinity,
+      height: getProportionateScreenHeight(112),
       decoration: BoxDecoration(
         color: const Color(0xFFE0E0E0),
         borderRadius: BorderRadius.circular(15),
@@ -142,20 +144,6 @@ class CartCard extends StatelessWidget {
               ),
               SizedBox(height: getProportionateScreenHeight(10)),
               // ignore: sized_box_for_whitespace
-              Container(
-                  margin:
-                      EdgeInsets.only(left: getProportionateScreenWidth(60)),
-                  width: getProportionateScreenWidth(100),
-                  height: getProportionateScreenHeight(25),
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFFF62D00),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                      ),
-                      onPressed: () {},
-                      child: const Text('Add to cart '))),
             ],
           ),
         ),
@@ -181,170 +169,66 @@ class CartCheckDesc extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(height: getProportionateScreenHeight(24)),
-          RichText(
-              text: const TextSpan(children: [
-            TextSpan(
-                text: 'Deliver cost',
-                style: TextStyle(color: Colors.white, fontSize: 16)),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(
-                text: '₱75.00\n',
-                style: TextStyle(color: Colors.white, fontSize: 16)),
-            TextSpan(
-                text: 'Sub Total',
-                style: TextStyle(color: Colors.white, fontSize: 16)),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(
-                text: '₱495.00\n',
-                style: TextStyle(color: Colors.white, fontSize: 16)),
-            TextSpan(
-              text: '\n',
+          Padding(
+            padding: EdgeInsets.symmetric(
+                horizontal: getProportionateScreenWidth(24)),
+            child: Row(
+              children: const [
+                Text('Delivery cost',
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white)),
+                Spacer(),
+                Text('₱75.00',
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white))
+              ],
             ),
-            TextSpan(
-              text: 'Total',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(
+                horizontal: getProportionateScreenWidth(24)),
+            child: Row(
+              children: const [
+                Text('Subtotal',
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white)),
+                Spacer(),
+                Text('₱495.00',
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white))
+              ],
             ),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(text: '\u00A0'),
-            TextSpan(
-              text: '₱570.00',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold),
+          ),
+          SizedBox(height: getProportionateScreenHeight(24)),
+          Padding(
+            padding: EdgeInsets.symmetric(
+                horizontal: getProportionateScreenWidth(24)),
+            child: Row(
+              children: const [
+                Text('Total',
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white)),
+                Spacer(),
+                Text('₱570.00',
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white))
+              ],
             ),
-          ])),
+          ),
           SizedBox(
-            height: getProportionateScreenHeight(40),
+            height: getProportionateScreenHeight(20),
           ),
           DottedBorder(
             dashPattern: const [8, 4],
@@ -383,7 +267,9 @@ class CartCheckDesc extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8),
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, CheckoutScreen.routeName);
+              },
               child: const Text(
                 'Checkout',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),

@@ -9,7 +9,8 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: const EdgeInsets.symmetric(vertical: 20),
+      padding: EdgeInsets.symmetric(
+          vertical: 20, horizontal: getProportionateScreenWidth(24)),
       child: Center(
         child: Column(
           children: [
@@ -58,7 +59,7 @@ class FavoriteCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: getProportionateScreenHeight(320),
+      width: double.infinity,
       height: getProportionateScreenHeight(132),
       decoration: BoxDecoration(
         color: const Color(0xFFE0E0E0),
