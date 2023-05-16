@@ -1,3 +1,4 @@
+import 'package:eldepizza/screens/Sign_in/sign_in_screen.dart';
 import 'package:eldepizza/size_config.dart';
 import 'package:flutter/material.dart';
 
@@ -51,7 +52,9 @@ class _ProfileFormState extends State<ProfileForm> {
           ),
           const Spacer(),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, SignInScreen.routeName);
+            },
             icon: const Icon(Icons.exit_to_app),
             color: Colors.white,
           )
