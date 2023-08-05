@@ -14,8 +14,8 @@ class SizeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: getProportionateScreenHeight(100),
-      width: getProportionateScreenWidth(100),
+      height: getProportionateScreenHeight(120),
+      width: getProportionateScreenWidth(106),
       decoration: BoxDecoration(
         color: const Color(0xFFE0E0E0),
         borderRadius: BorderRadius.circular(10),

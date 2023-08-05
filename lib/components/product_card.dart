@@ -52,9 +52,9 @@ class ProductCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "₱${product.price}",
+                    "₱ ${product.price.toStringAsFixed(2)}",
                     style: TextStyle(
-                      fontSize: getProportionateScreenWidth(18),
+                      fontSize: getProportionateScreenWidth(16),
                       fontWeight: FontWeight.w600,
                       color: kPrimaryColor,
                     ),

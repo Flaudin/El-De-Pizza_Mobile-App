@@ -18,7 +18,7 @@ class ProductDetailsCard extends StatelessWidget {
             vertical: getProportionateScreenHeight(2)),
         child: GlassContainer(
           width: getProportionateScreenWidth(340),
-          height: getProportionateScreenHeight(198),
+          height: MediaQuery.of(context).size.height * 0.25,
           color: const Color(0xFF777777).withOpacity(0.4),
           blur: 10,
           borderRadius: BorderRadius.circular(18),
@@ -72,7 +72,7 @@ class ProductDetailsCard extends StatelessWidget {
                                 color: Colors.white)),
                       ],
                     ),
-                    SizedBox(height: getProportionateScreenHeight(8)),
+                    //SizedBox(height: getProportionateScreenHeight(8)),
                     const Text(
                       'Pepperoni pizza is a popular type of pizza \nthat features tomato sauce, cheese, and \nslices of spicy, cured pepperoni sausage \non top.',
                       style: TextStyle(
@@ -98,30 +98,6 @@ class ProductDetailsCard extends StatelessWidget {
                   ],
                 ),
               ),
-              // const Spacer(),
-              // Padding(
-              //   padding: EdgeInsets.symmetric(
-              //       horizontal: getProportionateScreenWidth(20)),
-              //   child: Column(
-              //     crossAxisAlignment: CrossAxisAlignment.start,
-              //     children: [
-              //       Text(
-              //         "Pizza",
-              //         style: TextStyle(
-              //           fontSize: getProportionateScreenWidth(20),
-              //           fontWeight: FontWeight.bold,
-              //         ),
-              //       ),
-              //       Text(
-              //         "Pizza",
-              //         style: TextStyle(
-              //           fontSize: getProportionateScreenWidth(20),
-              //           fontWeight: FontWeight.bold,
-              //         ),
-              //       ),
-              //     ],
-              //   ),
-              // ),
             ],
           ),
         ),

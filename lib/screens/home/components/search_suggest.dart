@@ -49,32 +49,17 @@ class SuggestionCard extends StatelessWidget {
       padding: EdgeInsets.only(left: getProportionateScreenWidth(6)),
       child: GestureDetector(
         onTap: press,
-        child: SizedBox(
-          height: getProportionateScreenWidth(25),
-          width: getProportionateScreenWidth(148),
-          child: ClipRRect(
+        child: Container(
+          padding: EdgeInsets.symmetric(
+              horizontal: getProportionateScreenWidth(14),
+              vertical: getProportionateScreenHeight(7)),
+          decoration: BoxDecoration(
+            color: const Color(0xFFF62D00),
             borderRadius: BorderRadius.circular(20),
-            child: Stack(
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    color: const Color(0xFFF62D00),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                ),
-                Center(
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: getProportionateScreenWidth(2),
-                        vertical: getProportionateScreenWidth(4)),
-                    child: Text(
-                      '$suggestions',
-                      style: const TextStyle(color: Colors.white, fontSize: 14),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+          ),
+          child: Text(
+            suggestions,
+            style: const TextStyle(color: Colors.white, fontSize: 14),
           ),
         ),
       ),

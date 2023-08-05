@@ -16,9 +16,9 @@ class CartScreen extends StatelessWidget {
           'Cart',
           style: TextStyle(color: Colors.black),
         ),
+        automaticallyImplyLeading: false,
       ),
       body: const Body(),
-      bottomNavigationBar: const CustomBottomNav(selectedMenu: MenuState.cart),
     );
   }
 }

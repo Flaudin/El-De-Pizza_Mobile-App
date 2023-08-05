@@ -12,8 +12,6 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Body(),
-      bottomNavigationBar:
-          const CustomBottomNav(selectedMenu: MenuState.profile),
     );
   }
 }
