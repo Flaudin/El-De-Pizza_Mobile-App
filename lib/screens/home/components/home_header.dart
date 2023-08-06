@@ -60,9 +60,9 @@ class HomeHeader extends StatelessWidget {
             ],
           ),
           SizedBox(height: getProportionateScreenHeight(10)),
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children: [
               SearchField(),
             ],
           ),

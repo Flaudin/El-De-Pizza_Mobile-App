@@ -34,7 +34,7 @@ class Body extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: SizeConfig.screenHeight * 0.1),
-              ForgotPassForm(),
+              const ForgotPassForm(),
             ],
           ),
         ),
@@ -46,6 +46,7 @@ class Body extends StatelessWidget {
 class ForgotPassForm extends StatefulWidget {
   const ForgotPassForm({super.key});
   @override
+  // ignore: library_private_types_in_public_api
   _ForgotPassFormState createState() => _ForgotPassFormState();
 }
 
@@ -120,7 +121,7 @@ class _ForgotPassFormState extends State<ForgotPassForm> {
             },
           ),
           SizedBox(height: SizeConfig.screenHeight * 0.1),
-          NoAccount(),
+          const NoAccount(),
         ],
       ),
     );

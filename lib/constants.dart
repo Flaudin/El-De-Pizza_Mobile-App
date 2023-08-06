@@ -39,3 +39,10 @@ OutlineInputBorder outlineInputBorder() {
     borderSide: const BorderSide(color: kTextColor),
   );
 }
+
+const kAddToCart = SnackBar(
+    backgroundColor: kPrimaryColor,
+    content: Text(
+      "Added to Cart",
+      style: TextStyle(color: Colors.white),
+    ));

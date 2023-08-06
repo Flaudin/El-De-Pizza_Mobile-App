@@ -1,15 +1,22 @@
-import 'package:eldepizza/screens/cart/components/body.dart';
+import 'package:eldepizza/models/cart.dart';
+import 'package:eldepizza/screens/cart/components/cart_card.dart';
+import 'package:eldepizza/screens/cart/components/cart_check_desc.dart';
+import 'package:eldepizza/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-import '../../components/custom_bottom_nav.dart';
-import '../../enum.dart';
-
-class CartScreen extends StatelessWidget {
+class CartScreen extends StatefulWidget {
   static String routeName = "/cart";
   const CartScreen({super.key});
 
   @override
+  State<CartScreen> createState() => _CartScreenState();
+}
+
+class _CartScreenState extends State<CartScreen> {
+  @override
   Widget build(BuildContext context) {
+    final carts = Provider.of<Cart>(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -18,7 +25,42 @@ class CartScreen extends StatelessWidget {
         ),
         automaticallyImplyLeading: false,
       ),
-      body: const Body(),
+      body: carts.items.isEmpty
+          ? const Center(
+              child: Text("Your cart is empty."),
+            )
+          : ListView.separated(
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: getProportionateScreenWidth(24)),
+                  child: Dismissible(
+                    direction: DismissDirection.endToStart,
+                    background: Container(color: Colors.redAccent),
+                    onDismissed: (direction) {
+                      setState(() {
+                        carts.removeToCart(carts.items[index]);
+                      });
+                    },
+                    key: UniqueKey(),
+                    child: CartCard(
+                        title: carts.items[index].title,
+                        description: carts.items[index].description,
+                        rating: carts.items[index].rating,
+                        time: carts.items[index].time,
+                        image: 'android/assets/images/pizza3.png'),
+                  ),
+                );
+              },
+              separatorBuilder: (context, index) {
+                return const Divider();
+              },
+              itemCount: carts.items.length),
+      bottomNavigationBar: Padding(
+        padding:
+            EdgeInsets.symmetric(vertical: getProportionateScreenHeight(2)),
+        child: const CartCheckDesc(),
+      ),
     );
   }
 }

@@ -1,6 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
-import 'package:eldepizza/constants.dart';
 import 'package:eldepizza/models/Product.dart';
 import 'package:eldepizza/screens/favorite/components/favorite_card.dart';
 import 'package:eldepizza/size_config.dart';

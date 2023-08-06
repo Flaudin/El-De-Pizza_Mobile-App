@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-
-import '../../components/custom_bottom_nav.dart';
-import '../../enum.dart';
 import 'components/body.dart';
 
 class ProfileScreen extends StatelessWidget {

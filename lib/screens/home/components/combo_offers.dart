@@ -78,8 +78,8 @@ class ComboOfferCard extends StatelessWidget {
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                       colors: [
-                        Color(0xFF343434).withOpacity(0.4),
-                        Color(0xFF343434).withOpacity(0.15),
+                        const Color(0xFF343434).withOpacity(0.4),
+                        const Color(0xFF343434).withOpacity(0.15),
                       ],
                     ),
                   ),
@@ -91,7 +91,7 @@ class ComboOfferCard extends StatelessWidget {
                   ),
                   child: Text.rich(
                     TextSpan(
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                       children: [
                         TextSpan(
                           text: "$category\n",

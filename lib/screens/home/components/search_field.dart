@@ -13,7 +13,7 @@ class SearchField extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.4),
         borderRadius: BorderRadius.circular(15),
-        border: Border.all(color: Color(0xFF777777)),
+        border: Border.all(color: const Color(0xFF777777)),
       ),
       child: TextField(
         // ignore: avoid_print
