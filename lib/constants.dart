@@ -46,3 +46,10 @@ const kAddToCart = SnackBar(
       "Added to Cart",
       style: TextStyle(color: Colors.white),
     ));
+
+const kAddToFav = SnackBar(
+    backgroundColor: kPrimaryColor,
+    content: Text(
+      "Added to Favorites",
+      style: TextStyle(color: Colors.white),
+    ));

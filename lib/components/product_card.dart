@@ -1,9 +1,11 @@
 import 'package:eldepizza/constants.dart';
 import 'package:eldepizza/models/Product.dart';
+import 'package:eldepizza/models/favorites.dart';
 import 'package:eldepizza/screens/productpage/product_page_screen.dart';
 import 'package:eldepizza/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({
@@ -61,7 +63,11 @@ class ProductCard extends StatelessWidget {
                   ),
                   InkWell(
                     borderRadius: BorderRadius.circular(30),
-                    onTap: () {},
+                    onTap: () {
+                      Provider.of<Favorite>(context, listen: false)
+                          .addToCart(product);
+                      ScaffoldMessenger.of(context).showSnackBar(kAddToFav);
+                    },
                     child: Container(
                       padding: EdgeInsets.all(getProportionateScreenWidth(8)),
                       width: getProportionateScreenWidth(28),

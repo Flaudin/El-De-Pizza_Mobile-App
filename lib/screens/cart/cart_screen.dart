@@ -36,7 +36,17 @@ class _CartScreenState extends State<CartScreen> {
                       horizontal: getProportionateScreenWidth(24)),
                   child: Dismissible(
                     direction: DismissDirection.endToStart,
-                    background: Container(color: Colors.redAccent),
+                    background: Container(
+                      padding: EdgeInsets.symmetric(
+                          vertical: getProportionateScreenHeight(45),
+                          horizontal: getProportionateScreenWidth(24)),
+                      color: Colors.redAccent,
+                      child: const Text(
+                        "Remove",
+                        textAlign: TextAlign.right,
+                        style: TextStyle(color: Colors.white, fontSize: 16),
+                      ),
+                    ),
                     onDismissed: (direction) {
                       setState(() {
                         carts.removeToCart(carts.items[index]);
@@ -48,7 +58,7 @@ class _CartScreenState extends State<CartScreen> {
                         description: carts.items[index].description,
                         rating: carts.items[index].rating,
                         time: carts.items[index].time,
-                        image: 'android/assets/images/pizza3.png'),
+                        image: carts.items[index].favImg),
                   ),
                 );
               },

@@ -1,5 +1,6 @@
 import 'package:eldepizza/constants.dart';
 import 'package:eldepizza/models/cart.dart';
+import 'package:eldepizza/models/favorites.dart';
 import 'package:eldepizza/routs.dart';
 import 'package:eldepizza/screens/Splash/onboardScreen.dart';
 //import 'package:firebase_core/firebase_core.dart';
@@ -18,8 +19,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => Cart(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => Cart()),
+        ChangeNotifierProvider(create: (context) => Favorite())
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'El De Pizza Mobile App',

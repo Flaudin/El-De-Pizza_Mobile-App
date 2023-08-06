@@ -20,11 +20,12 @@ class Body extends StatelessWidget {
                 (index) => Padding(
                       padding: const EdgeInsets.only(bottom: 16),
                       child: FavoriteCard(
-                          title: demoProducts[index].title,
-                          description: 'pizza',
-                          rating: '4.9',
-                          time: demoProducts[index].time,
-                          image: demoProducts[index].favImg),
+                        title: demoProducts[index].title,
+                        description: 'pizza',
+                        rating: 4.9,
+                        time: demoProducts[index].time,
+                        image: demoProducts[index].favImg,
+                      ),
                     ))),
       ),
     );
