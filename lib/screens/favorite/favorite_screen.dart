@@ -1,6 +1,6 @@
 //import 'package:eldepizza/components/custom_bottom_nav.dart';
 import 'package:eldepizza/constants.dart';
-import 'package:eldepizza/models/Product.dart';
+//import 'package:eldepizza/models/Product.dart';
 import 'package:eldepizza/models/cart.dart';
 import 'package:eldepizza/models/favorites.dart';
 import 'package:eldepizza/screens/favorite/components/favorite_card.dart';
@@ -69,7 +69,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                             description: favs.favItems[index].description,
                             rating: favs.favItems[index].rating,
                             time: favs.favItems[index].time,
-                            image: favs.favItems[index].favImg,
+                            image: favs.favItems[index].images.toString(),
                           ),
                         )),
                   );

@@ -100,7 +100,7 @@ class _BodyState extends State<Body> {
                             ),
                           ),
                         ),
-                        const SizedBox(height: 46.0),
+                        const SizedBox(height: 32.0),
                         Padding(
                           padding: EdgeInsets.symmetric(
                               horizontal: getProportionateScreenWidth(24)),

@@ -16,14 +16,16 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Product product = Product(
-        id: 1,
-        images: ["android/assets/images/pizza3.png"],
-        colors: [Colors.black12],
-        title: 'Cheesy Pepperoni',
-        price: 495.55,
-        description: description,
-        time: "7-10 mins",
-        favImg: "android/assets/images/pizza3.png");
+      id: 1,
+      images: ["android/assets/images/pizza3.png"],
+      //colors: [Colors.black12],
+      title: 'Cheesy Pepperoni',
+      price: 495.55,
+      description: description,
+      time: "7-10 mins", isFavourite: false, colors: [], favImg: '',
+      isPopular: false, rating: 0.00,
+      //favImg: "android/assets/images/pizza3.png"
+    );
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(children: [

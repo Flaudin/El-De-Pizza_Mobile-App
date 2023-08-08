@@ -58,7 +58,7 @@ class _CartScreenState extends State<CartScreen> {
                         description: carts.items[index].description,
                         rating: carts.items[index].rating,
                         time: carts.items[index].time,
-                        image: carts.items[index].favImg),
+                        image: carts.items[index].images.toString()),
                   ),
                 );
               },

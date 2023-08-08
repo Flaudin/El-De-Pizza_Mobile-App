@@ -24,7 +24,7 @@ class Body extends StatelessWidget {
                         description: 'pizza',
                         rating: 4.9,
                         time: demoProducts[index].time,
-                        image: demoProducts[index].favImg,
+                        image: demoProducts[index].images.toString(),
                       ),
                     ))),
       ),
