@@ -1,13 +1,26 @@
 import 'package:eldepizza/screens/home/components/section_heading.dart';
 import 'package:eldepizza/service/prouct_service.dart';
 import 'package:flutter/material.dart';
-
 import '../../../components/product_card.dart';
 import '../../../models/Product.dart';
 import '../../../size_config.dart';
 
-class BestSellingProducts<T extends ProductService> extends StatelessWidget {
+class BestSellingProducts extends StatefulWidget {
   const BestSellingProducts({super.key});
+
+  @override
+  State<BestSellingProducts> createState() => _BestSellingProductsState();
+}
+
+class _BestSellingProductsState extends State<BestSellingProducts> {
+  late Future<List<Product>> futurepro;
+  final List<Product> products = [];
+
+  @override
+  void initState() {
+    futurepro = ProductService().fetch_product();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,22 +32,23 @@ class BestSellingProducts<T extends ProductService> extends StatelessWidget {
             child: SectionTitle(title: 'Best Selling', press: () {})),
         SizedBox(height: getProportionateScreenWidth(20)),
         FutureBuilder(
-          future: fetch_product(),
+          future: futurepro,
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(child: CircularProgressIndicator.adaptive());
             } else if (snapshot.hasError) {
               return const Center(child: Text("Failed to load Products"));
             } else {
+              products.addAll(snapshot.data!);
               return SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
                     ...List.generate(
-                      demoProducts.length,
+                      products.length,
                       (index) {
-                        if (demoProducts[index].isPopular) {
-                          return ProductCard(product: demoProducts[index]);
+                        if (products[index].isPopular) {
+                          return ProductCard(product: products[index]);
                         }
                         return const SizedBox.shrink();
                       },
