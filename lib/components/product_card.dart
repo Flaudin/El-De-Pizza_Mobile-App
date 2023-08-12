@@ -26,7 +26,8 @@ class ProductCard extends StatelessWidget {
         width: getProportionateScreenWidth(width),
         child: GestureDetector(
           onTap: () {
-            Navigator.pushNamed(context, ProductPageScreen.routeName);
+            Navigator.pushNamed(context, ProductPageScreen.routeName,
+                arguments: ProductDetailArgs(product: product));
           },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,7 +42,7 @@ class ProductCard extends StatelessWidget {
                   ),
                   child: Hero(
                       tag: product.id.toString(),
-                      child: Image.asset(product.images[0])),
+                      child: Image.asset(product.images.first)),
                 ),
               ),
               const SizedBox(height: 10),

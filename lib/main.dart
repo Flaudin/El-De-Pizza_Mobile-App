@@ -4,7 +4,6 @@ import 'package:eldepizza/models/favorites.dart';
 import 'package:eldepizza/routs.dart';
 //import 'package:eldepizza/screens/Sign_up/sign_up_screen.dart';
 import 'package:eldepizza/screens/Splash/onboardScreen.dart';
-import 'package:eldepizza/service/prouct_service.dart';
 //import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

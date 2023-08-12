@@ -11,21 +11,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class Body extends StatelessWidget {
-  const Body({Key? key}) : super(key: key);
+  final Product product;
+  const Body({Key? key, required this.product}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final Product product = Product(
-      id: 1,
-      images: ["android/assets/images/pizza3.png"],
-      //colors: [Colors.black12],
-      title: 'Cheesy Pepperoni',
-      price: 495.55,
-      description: description,
-      time: "7-10 mins", isFavourite: false, colors: [], favImg: '',
-      isPopular: false, rating: 0.00,
-      //favImg: "android/assets/images/pizza3.png"
-    );
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(children: [
@@ -34,7 +24,9 @@ class Body extends StatelessWidget {
             child: Stack(children: [
               Image.asset('android/assets/images/details.png'),
               const CustomBackIcon(),
-              const ProductDetailsCard(),
+              ProductDetailsCard(
+                product: product,
+              ),
               //SizedBox(height: getProportionateScreenHeight(60)),
             ]),
           ),

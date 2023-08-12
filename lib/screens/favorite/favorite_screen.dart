@@ -69,7 +69,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                             description: favs.favItems[index].description,
                             rating: favs.favItems[index].rating,
                             time: favs.favItems[index].time,
-                            image: favs.favItems[index].images.toString(),
+                            image: favs.favItems[index].favImg,
                           ),
                         )),
                   );

@@ -1,9 +1,5 @@
-import 'package:eldepizza/constants.dart';
-import 'package:eldepizza/models/Product.dart';
-import 'package:eldepizza/models/cart.dart';
 import 'package:eldepizza/size_config.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class FavoriteCard extends StatelessWidget {
   const FavoriteCard({
@@ -27,7 +23,7 @@ class FavoriteCard extends StatelessWidget {
     return Container(
       width: double.infinity,
       padding: EdgeInsets.symmetric(vertical: getProportionateScreenHeight(6)),
-      //height: getProportionateScreenHeight(132),
+      height: getProportionateScreenHeight(132),
       decoration: BoxDecoration(
         color: const Color(0xFFE0E0E0),
         borderRadius: BorderRadius.circular(15),

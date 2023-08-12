@@ -58,7 +58,7 @@ class _CartScreenState extends State<CartScreen> {
                         description: carts.items[index].description,
                         rating: carts.items[index].rating,
                         time: carts.items[index].time,
-                        image: carts.items[index].images.toString()),
+                        image: carts.items[index].favImg),
                   ),
                 );
               },
@@ -67,10 +67,9 @@ class _CartScreenState extends State<CartScreen> {
               },
               itemCount: carts.items.length),
       bottomNavigationBar: Padding(
-        padding:
-            EdgeInsets.symmetric(vertical: getProportionateScreenHeight(2)),
-        child: const CartCheckDesc(),
-      ),
+          padding:
+              EdgeInsets.symmetric(vertical: getProportionateScreenHeight(2)),
+          child: const CartCheckDesc()),
     );
   }
 }

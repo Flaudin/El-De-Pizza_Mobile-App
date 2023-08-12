@@ -1,12 +1,14 @@
+import 'package:eldepizza/models/Product.dart';
 import 'package:flutter/material.dart';
 import 'package:glassmorphism_ui/glassmorphism_ui.dart';
+import 'package:intl/intl.dart';
 
 import '../../../size_config.dart';
 
 class ProductDetailsCard extends StatelessWidget {
-  const ProductDetailsCard({
-    super.key,
-  });
+  const ProductDetailsCard({super.key, required this.product});
+
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +34,7 @@ class ProductDetailsCard extends StatelessWidget {
                   children: [
                     SizedBox(height: getProportionateScreenHeight(20)),
                     Text(
-                      "Cheesy Pepperoni",
+                      product.title,
                       style: TextStyle(
                         fontSize: getProportionateScreenWidth(20),
                         fontWeight: FontWeight.bold,
@@ -57,25 +59,25 @@ class ProductDetailsCard extends StatelessWidget {
                           color: Color(0xFFEEC306),
                           size: 18,
                         ),
-                        const Text(
-                          '4.7',
-                          style: TextStyle(
+                        Text(
+                          product.rating.toString(),
+                          style: const TextStyle(
                               fontFamily: 'WorkSans',
                               fontSize: 16,
                               color: Colors.white),
                         ),
                         SizedBox(width: getProportionateScreenWidth(16)),
-                        const Text('7-10 mins',
-                            style: TextStyle(
+                        Text(product.time,
+                            style: const TextStyle(
                                 fontFamily: 'WorkSans',
                                 fontSize: 16,
                                 color: Colors.white)),
                       ],
                     ),
                     //SizedBox(height: getProportionateScreenHeight(8)),
-                    const Text(
-                      'Pepperoni pizza is a popular type of pizza \nthat features tomato sauce, cheese, and \nslices of spicy, cured pepperoni sausage \non top.',
-                      style: TextStyle(
+                    Text(
+                      product.description,
+                      style: const TextStyle(
                           fontFamily: 'WorkSans', color: Colors.white),
                       textAlign: TextAlign.justify,
                     ),
@@ -85,9 +87,11 @@ class ProductDetailsCard extends StatelessWidget {
                         SizedBox(
                           width: getProportionateScreenWidth(220),
                         ),
-                        const Text(
-                          '₱495.00',
-                          style: TextStyle(
+                        Text(
+                          NumberFormat.simpleCurrency(
+                                  locale: 'tl', decimalDigits: 2)
+                              .format(product.price),
+                          style: const TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
                               color: Colors.white),

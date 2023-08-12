@@ -120,4 +120,4 @@ List<Product> demoProducts = [
       isPopular: false),
 ];
 
-const String description = "pizza";
+const String description = "Lots of Pizza";
