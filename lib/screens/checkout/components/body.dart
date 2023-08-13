@@ -1,12 +1,43 @@
 import 'package:eldepizza/components/default_button.dart';
+import 'package:eldepizza/constants.dart';
 import 'package:eldepizza/screens/checkout/components/address_card.dart';
+import 'package:eldepizza/screens/delivery/delivery_screen.dart';
 import 'package:eldepizza/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 import 'payment_card.dart';
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
   const Body({super.key});
+
+  @override
+  State<Body> createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
+  late final AnimationController loadcontroller;
+
+  @override
+  void initState() {
+    super.initState();
+
+    loadcontroller =
+        AnimationController(duration: const Duration(seconds: 3), vsync: this);
+
+    loadcontroller.addStatusListener((status) async {
+      if (status == AnimationStatus.completed) {
+        Navigator.pushNamed(context, DeliveryScreen.routeName);
+        loadcontroller.reset();
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    loadcontroller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +114,32 @@ class Body extends StatelessWidget {
             const Spacer(),
             DefaultButton(
               text: 'Place Order',
-              press: () {},
+              press: () {
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) => Container(
+                        width: 100,
+                        height: 100,
+                        decoration: const BoxDecoration(),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Lottie.asset(
+                                "android/assets/json-images/loadingPizza.json",
+                                controller: loadcontroller,
+                                onLoaded: (composition) {
+                              loadcontroller
+                                ..duration = composition.duration
+                                ..forward();
+                            }),
+                            const Text(
+                              'Loading ...',
+                              style: TextStyle(color: kTextColor),
+                            )
+                          ],
+                        )));
+              },
             ),
             SizedBox(height: getProportionateScreenHeight(24)),
           ],

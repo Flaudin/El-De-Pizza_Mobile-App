@@ -12,15 +12,6 @@ class BestSellingProducts extends StatefulWidget {
 }
 
 class _BestSellingProductsState extends State<BestSellingProducts> {
-  // late Future<List<Product>> futurepro;
-  // final List<Product> products = [];
-
-  // @override
-  // void initState() {
-  //   futurepro = ProductService().fetch_product();
-  //   super.initState();
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Column(

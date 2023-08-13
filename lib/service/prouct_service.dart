@@ -13,6 +13,5 @@ class ProductService extends ChangeNotifier {
     } else {
       throw Exception('Failed to load products');
     }
-    notifyListeners();
   }
 }

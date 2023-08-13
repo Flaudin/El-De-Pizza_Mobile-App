@@ -1,3 +1,4 @@
+import 'package:eldepizza/screens/home/components/all_products.dart';
 import 'package:eldepizza/size_config.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +19,9 @@ class SearchField extends StatelessWidget {
       child: TextField(
         // ignore: avoid_print
         onChanged: (value) => print(value),
+        onEditingComplete: () {
+          Navigator.pushNamed(context, ProductLits.routeName);
+        },
         decoration: InputDecoration(
           contentPadding: EdgeInsets.symmetric(
             horizontal: getProportionateScreenWidth(20),
