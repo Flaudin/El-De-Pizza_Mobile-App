@@ -163,7 +163,7 @@ class _SignUpFormState extends State<SignUpForm> {
         } else if (emailValidatorRegExp.hasMatch(value)) {
           removeError(error: kInvalidEmailError);
         }
-        return null;
+        return;
       },
       validator: (value) {
         if (value!.isEmpty) {

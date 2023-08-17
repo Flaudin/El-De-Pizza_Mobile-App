@@ -125,7 +125,7 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Lottie.asset(
+                            LottieBuilder.asset(
                                 "android/assets/json-images/loadingPizza.json",
                                 controller: loadcontroller,
                                 onLoaded: (composition) {

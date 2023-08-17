@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    int _cartCount = Provider.of<Cart>(context).items.length;
+    int cartCount = Provider.of<Cart>(context).items.length;
     return Scaffold(
       body: Container(child: _pages.elementAt(_currentIndex)),
       bottomNavigationBar:
@@ -50,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
               BottomNavigationBarItem(
                   icon: badges.Badge(
                       badgeContent: Text(
-                        _cartCount.toString(),
+                        cartCount.toString(),
                         style: const TextStyle(color: Colors.white),
                       ),
                       child: const Icon(Icons.shopping_cart_outlined)),

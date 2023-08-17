@@ -83,16 +83,18 @@ class _ProductLitsState extends State<ProductLits> {
           children: const [DrawerHeader(child: Text("Filter By"))],
         ),
       ),
-      body: ResponsiveGridList(
-          horizontalGridSpacing: 16,
-          verticalGridSpacing: 16,
-          horizontalGridMargin: 12,
-          verticalGridMargin: 24,
-          minItemWidth: 140,
-          minItemsPerRow: 2,
-          maxItemsPerRow: 2,
-          children: List.generate(
-              filteredProducts.length, (index) => filteredProducts[index])),
+      body: Center(
+        child: ResponsiveGridList(
+            horizontalGridSpacing: 16,
+            verticalGridSpacing: 16,
+            horizontalGridMargin: 12,
+            verticalGridMargin: 24,
+            minItemWidth: 140,
+            minItemsPerRow: 2,
+            maxItemsPerRow: 2,
+            children: List.generate(
+                filteredProducts.length, (index) => filteredProducts[index])),
+      ),
     );
   }
 }

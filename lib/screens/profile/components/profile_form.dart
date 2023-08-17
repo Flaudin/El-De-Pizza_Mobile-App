@@ -37,9 +37,9 @@ class _ProfileFormState extends State<ProfileForm> {
           SizedBox(
             width: getProportionateScreenWidth(20),
           ),
-          Column(
+          const Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
+            children: [
               Text(
                 'Donkey',
                 style: TextStyle(

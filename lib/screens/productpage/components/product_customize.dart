@@ -4,13 +4,26 @@ import 'package:eldepizza/screens/productpage/components/size_card.dart';
 import 'package:eldepizza/size_config.dart';
 import 'package:flutter/material.dart';
 
-class ProductCustomize extends StatelessWidget {
+class ProductCustomize extends StatefulWidget {
   const ProductCustomize({
     super.key,
   });
 
   @override
+  State<ProductCustomize> createState() => _ProductCustomizeState();
+}
+
+class _ProductCustomizeState extends State<ProductCustomize> {
+  @override
   Widget build(BuildContext context) {
+    String selectedSize = 'Classic';
+
+    void _selectedSize(String size) {
+      setState(() {
+        selectedSize = size;
+      });
+    }
+
     return Padding(
       padding:
           EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(24)),
@@ -32,6 +45,10 @@ class ProductCustomize extends StatelessWidget {
                 (index) => SizeCard(
                       size: demoSize[index].size,
                       image: demoSize[index].images,
+                      isSelect: selectedSize == demoSize[index].size,
+                      onselect: () {
+                        _selectedSize(demoSize[index].size);
+                      },
                     ))),
         SizedBox(height: getProportionateScreenHeight(20)),
         const Text('Add ons',

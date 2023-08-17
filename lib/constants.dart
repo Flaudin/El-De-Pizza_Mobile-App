@@ -11,6 +11,9 @@ const kPrimaryGradientColor = LinearGradient(
 const kSecondaryColor = Color(0xFF0A0E21);
 const kTextColor = Color(0xFF0A0E21);
 const kTextStyleNormal = TextStyle(color: Colors.white, fontSize: 16);
+const kTextStyleMedium = TextStyle(color: Colors.white, fontSize: 20);
+const kTextStyleMediumBold =
+    TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold);
 
 const kAnimationDuration = Duration(milliseconds: 200);
 
