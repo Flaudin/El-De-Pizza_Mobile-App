@@ -1,6 +1,5 @@
-# eldepizza
-
-A new Flutter project.
+# EL De Pizza
+An ecommerce app for pizza lovers.
 
 ## Getting Started
 
