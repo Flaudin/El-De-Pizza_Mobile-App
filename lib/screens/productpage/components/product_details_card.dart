@@ -1,9 +1,9 @@
+import 'package:eldepizza/constants.dart';
 import 'package:eldepizza/models/Product.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:glassmorphism_ui/glassmorphism_ui.dart';
 import 'package:intl/intl.dart';
-
-import '../../../size_config.dart';
 
 class ProductDetailsCard extends StatelessWidget {
   const ProductDetailsCard({super.key, required this.product});
@@ -13,45 +13,41 @@ class ProductDetailsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: getProportionateScreenHeight(160),
+      top: 160.h,
       child: Padding(
-        padding: EdgeInsets.symmetric(
-            horizontal: getProportionateScreenWidth(17),
-            vertical: getProportionateScreenHeight(2)),
+        padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 2.h),
         child: GlassContainer(
-          width: getProportionateScreenWidth(340),
-          height: MediaQuery.of(context).size.height * 0.25,
+          width: 326.w,
+          //height: MediaQuery.of(context).size.height * 0.25,
           color: const Color(0xFF777777).withOpacity(0.4),
           blur: 10,
-          borderRadius: BorderRadius.circular(18),
-          child: Row(
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: getProportionateScreenWidth(20)),
-                child: Column(
+          borderRadius: BorderRadius.circular(8.r),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
+            child: Row(
+              children: [
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: getProportionateScreenHeight(20)),
                     Text(
                       product.title,
                       style: TextStyle(
-                        fontSize: getProportionateScreenWidth(20),
+                        fontSize: xl,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'WorkSans',
-                        color: Colors.white,
+                        color: ktextLight,
                       ),
                     ),
                     Text(
                       "Pizza",
                       style: TextStyle(
-                        fontSize: getProportionateScreenWidth(16),
+                        fontSize: ml,
                         fontWeight: FontWeight.normal,
                         fontFamily: 'WorkSans',
-                        color: Colors.white,
+                        color: ktextLight,
                       ),
                     ),
-                    SizedBox(height: getProportionateScreenHeight(8)),
+                    SizedBox(height: 8.h),
                     Row(
                       children: [
                         const Icon(
@@ -61,48 +57,50 @@ class ProductDetailsCard extends StatelessWidget {
                         ),
                         Text(
                           product.rating.toString(),
-                          style: const TextStyle(
+                          style: TextStyle(
                               fontFamily: 'WorkSans',
-                              fontSize: 16,
-                              color: Colors.white),
+                              fontSize: sm,
+                              color: ktextLight),
                         ),
-                        SizedBox(width: getProportionateScreenWidth(16)),
+                        SizedBox(width: 16.w),
                         Text(product.time,
-                            style: const TextStyle(
+                            style: TextStyle(
                                 fontFamily: 'WorkSans',
-                                fontSize: 16,
-                                color: Colors.white)),
+                                fontSize: sm,
+                                color: ktextLight)),
                       ],
                     ),
                     //SizedBox(height: getProportionateScreenHeight(8)),
                     Text(
                       product.description,
-                      style: const TextStyle(
-                          fontFamily: 'WorkSans', color: Colors.white),
+                      style: TextStyle(
+                          fontFamily: 'WorkSans',
+                          color: ktextLight,
+                          fontSize: sm),
                       textAlign: TextAlign.justify,
                     ),
-                    SizedBox(height: getProportionateScreenHeight(8)),
+                    SizedBox(height: 8.h),
                     Row(
                       children: [
                         SizedBox(
-                          width: getProportionateScreenWidth(220),
+                          width: 220.w,
                         ),
                         Text(
                           NumberFormat.simpleCurrency(
                                   locale: 'tl', decimalDigits: 2)
                               .format(product.price),
-                          style: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white),
+                          style: TextStyle(
+                              fontSize: xl,
+                              fontWeight: FontWeight.w900,
+                              color: ktextLight),
                         )
                       ],
                     ),
-                    SizedBox(height: getProportionateScreenHeight(8)),
+                    SizedBox(height: 8.h),
                   ],
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

@@ -1,3 +1,4 @@
+import 'package:eldepizza/constants.dart';
 import 'package:eldepizza/size_config.dart';
 import 'package:flutter/material.dart';
 
@@ -34,7 +35,7 @@ class _QuantityCounterState extends State<QuantityCounter> {
               },
               icon: const Icon(
                 Icons.remove_circle_outline,
-                color: Colors.black,
+                color: ktextDark,
               )),
         ),
         SizedBox(
@@ -43,7 +44,7 @@ class _QuantityCounterState extends State<QuantityCounter> {
         Text(
           '$quantity',
           style: const TextStyle(
-              fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black),
+              fontSize: 16, fontWeight: FontWeight.w700, color: Colors.black),
         ),
         SizedBox(
           width: getProportionateScreenWidth(20),
@@ -52,7 +53,7 @@ class _QuantityCounterState extends State<QuantityCounter> {
           height: getProportionateScreenHeight(40),
           width: getProportionateScreenWidth(40),
           decoration: BoxDecoration(
-            color: const Color(0xFFF62D00),
+            color: quantity > 0 ? const Color(0xFFF62D00) : Colors.grey[300],
             borderRadius: BorderRadius.circular(10),
           ),
           child: IconButton(
@@ -61,9 +62,9 @@ class _QuantityCounterState extends State<QuantityCounter> {
                 quantity++;
               });
             },
-            icon: const Icon(
+            icon: Icon(
               Icons.add_circle_outline,
-              color: Colors.white,
+              color: quantity > 0 ? ktextLight : ktextDark,
             ),
           ),
         ),

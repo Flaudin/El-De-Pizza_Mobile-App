@@ -5,6 +5,7 @@ import 'package:eldepizza/screens/forgot_password/forgot_password.dart';
 //import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:eldepizza/constants.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../helpie/keyboard.dart';
 import '../../../size_config.dart';
 import '../../home/home_screen.dart';
@@ -120,16 +121,25 @@ class _SignFormState extends State<SignForm> {
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon:
             const CustomSurffixIcon(svgIcon: "android/assets/icons/Lock.svg"),
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 42, vertical: 20),
+        contentPadding: EdgeInsets.symmetric(horizontal: 42, vertical: 16.h),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(24.r),
+          borderSide: const BorderSide(color: kTextColor),
+          gapPadding: 10,
+        ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(28),
+          borderRadius: BorderRadius.circular(24.r),
           borderSide: const BorderSide(color: kTextColor),
           gapPadding: 10,
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(28),
+          borderRadius: BorderRadius.circular(24.r),
           borderSide: const BorderSide(color: kTextColor),
+          gapPadding: 10,
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(24.r),
+          borderSide: const BorderSide(color: kPrimaryColor),
           gapPadding: 10,
         ),
       ),

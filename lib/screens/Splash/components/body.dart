@@ -1,8 +1,10 @@
 import 'package:eldepizza/components/default_button.dart';
+import 'package:eldepizza/constants.dart';
 //import 'package:eldepizza/constants.dart';
 import 'package:eldepizza/screens/Sign_in/sign_in_screen.dart';
 import 'package:eldepizza/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
@@ -56,49 +58,49 @@ class _BodyState extends State<Body> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          padding: const EdgeInsets.all(4.0),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 12.w, vertical: 16.h),
                           width: 260,
-                          child: Align(
-                            alignment: Alignment.center,
-                            child: RichText(
-                                text: const TextSpan(
-                                    style: TextStyle(
-                                      fontSize: 32.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
-                                    ),
-                                    children: [
-                                  TextSpan(text: 'Quick'),
-                                  TextSpan(text: '\u00A0'),
-                                  TextSpan(
-                                    text: 'Delivery',
-                                    style: TextStyle(
-                                      color: Color(0xFFF62D00),
-                                    ),
-                                  ),
-                                  TextSpan(text: '\u00A0'),
-                                  TextSpan(text: 'at'),
-                                  TextSpan(text: '\u00A0'),
-                                  TextSpan(text: 'Your'),
-                                  TextSpan(text: '\u00A0'),
-                                  TextSpan(text: 'Doorstep'),
-                                ])),
+                          child: Wrap(
+                            alignment: WrapAlignment.center,
+                            children: [
+                              Text(
+                                'Quick ',
+                                style: TextStyle(
+                                    fontSize: header,
+                                    color: ktextLight,
+                                    fontWeight: FontWeight.w700),
+                              ),
+                              Text(
+                                'Delivery',
+                                style: TextStyle(
+                                    color: ktextPrimary,
+                                    fontSize: header,
+                                    fontWeight: FontWeight.w700),
+                              ),
+                              Text(
+                                'at your doorstep',
+                                style: TextStyle(
+                                    color: ktextLight,
+                                    fontSize: header,
+                                    fontWeight: FontWeight.w700),
+                              )
+                            ],
                           ),
                         ),
-                        const SizedBox(height: 16.0),
-                        const SizedBox(
-                          width: 390,
-                          child: Align(
-                            alignment: Alignment.center,
-                            child: Text(
+                        SizedBox(height: 8.h),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 12.w),
+                          child: Wrap(children: [
+                            Text(
                               'Introducing our new pizza delivery app with lightning-fast delivery service!',
                               style: TextStyle(
-                                fontSize: 16.0,
+                                fontSize: ml,
                                 color: Colors.white,
                               ),
                               textAlign: TextAlign.center,
                             ),
-                          ),
+                          ]),
                         ),
                         const SizedBox(height: 32.0),
                         Padding(

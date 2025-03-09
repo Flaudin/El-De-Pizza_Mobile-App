@@ -6,8 +6,8 @@ import 'package:eldepizza/screens/home/home_screen.dart';
 import 'package:eldepizza/screens/productpage/components/custom_back_button.dart';
 import 'package:eldepizza/screens/productpage/components/product_customize.dart';
 import 'package:eldepizza/screens/productpage/components/product_details_card.dart';
-import 'package:eldepizza/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 class Body extends StatelessWidget {
@@ -20,7 +20,7 @@ class Body extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(children: [
           SizedBox(
-            height: getProportionateScreenHeight(360),
+            height: 300.h,
             child: Stack(children: [
               Image.asset('android/assets/images/details.png'),
               const CustomBackIcon(),
@@ -30,7 +30,7 @@ class Body extends StatelessWidget {
               //SizedBox(height: getProportionateScreenHeight(60)),
             ]),
           ),
-          SizedBox(height: getProportionateScreenHeight(10)),
+          SizedBox(height: 8.h),
           const ProductCustomize(),
         ]),
       ),

@@ -1,8 +1,11 @@
+import 'package:eldepizza/constants.dart';
 import 'package:eldepizza/models/Size.dart';
 import 'package:eldepizza/screens/productpage/components/quantity_counter.dart';
 import 'package:eldepizza/screens/productpage/components/size_card.dart';
 import 'package:eldepizza/size_config.dart';
+import 'package:eldepizza/models/addons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProductCustomize extends StatefulWidget {
   const ProductCustomize({
@@ -17,8 +20,9 @@ class _ProductCustomizeState extends State<ProductCustomize> {
   @override
   Widget build(BuildContext context) {
     String selectedSize = 'Classic';
+    AddOns addOns = AddOns(title: "");
 
-    void _selectedSize(String size) {
+    void selectedSize0(String size) {
       setState(() {
         selectedSize = size;
       });
@@ -28,16 +32,16 @@ class _ProductCustomizeState extends State<ProductCustomize> {
       padding:
           EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(24)),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        const Text(
+        Text(
           'Customize',
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: lg, fontWeight: FontWeight.bold),
         ),
-        SizedBox(height: getProportionateScreenHeight(20)),
-        const Text(
+        SizedBox(height: 8.h),
+        Text(
           'Pizza Sizes',
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
+          style: TextStyle(fontSize: ml, fontWeight: FontWeight.normal),
         ),
-        SizedBox(height: getProportionateScreenHeight(16)),
+        SizedBox(height: 4.h),
         Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: List.generate(
@@ -47,38 +51,29 @@ class _ProductCustomizeState extends State<ProductCustomize> {
                       image: demoSize[index].images,
                       isSelect: selectedSize == demoSize[index].size,
                       onselect: () {
-                        _selectedSize(demoSize[index].size);
+                        selectedSize0(demoSize[index].size);
                       },
                     ))),
-        SizedBox(height: getProportionateScreenHeight(20)),
-        const Text('Add ons',
+        SizedBox(height: 8.h),
+        Text('Add ons',
             style: TextStyle(
-                fontSize: 16,
+                fontSize: ml,
                 fontWeight: FontWeight.normal,
                 color: Colors.black)),
-        SizedBox(height: getProportionateScreenHeight(16)),
+        SizedBox(height: 4.h),
         Row(
-          children: [
-            const AddonsCategory(
-              category: 'Iced Tea',
-            ),
-            SizedBox(width: getProportionateScreenWidth(6)),
-            const AddonsCategory(
-              category: 'Coca cola',
-            ),
-            SizedBox(width: getProportionateScreenWidth(6)),
-            const AddonsCategory(
-              category: 'Pineapple Juice',
-            ),
-          ],
-        ),
-        SizedBox(height: getProportionateScreenHeight(16)),
-        const Text('Quantity',
+            children: List.generate(
+                addOns.demoAddOns.length,
+                (index) => AddonsCategory(
+                      category: addOns.demoAddOns.first.title,
+                    ))),
+        SizedBox(height: 8.h),
+        Text('Quantity',
             style: TextStyle(
-                fontSize: 16,
+                fontSize: ml,
                 fontWeight: FontWeight.normal,
                 color: Colors.black)),
-        SizedBox(height: getProportionateScreenHeight(16)),
+        SizedBox(height: 4.h),
         const QuantityCounter(),
       ]),
     );
@@ -100,16 +95,15 @@ class AddonsCategory extends StatelessWidget {
       child: GestureDetector(
         onTap: () {},
         child: Container(
-          height: getProportionateScreenHeight(25),
-          width: getProportionateScreenWidth(98),
+          padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(18),
               border: Border.all(color: const Color(0xFFF62D00), width: 1)),
           child: Center(
               child: Text(
             category,
-            style: const TextStyle(
-                fontSize: 12, fontWeight: FontWeight.bold, color: Colors.black),
+            style: TextStyle(
+                fontSize: sm, fontWeight: FontWeight.bold, color: ktextDark),
           )),
         ),
       ),

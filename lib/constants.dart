@@ -1,5 +1,9 @@
 import 'package:eldepizza/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+//API Constants
+const String google_api_key = "AIzaSyAONoLV-NYk9ye0QO7M1slYI1jAQCtj3rQ";
 
 const kPrimaryColor = Color(0xFFF62D00);
 const kPrimaryLightColor = Color(0xFF0A0E21);
@@ -28,6 +32,18 @@ const String kMatchPassError = "Passwords don't match";
 const String kNamelNullError = "Please Enter your name";
 const String kPhoneNumberNullError = "Please Enter your phone number";
 const String kAddressNullError = "Please Enter your address";
+
+// Font Sizes
+double sm = 12.sp;
+double ml = 14.sp;
+double lg = 16.sp;
+double xl = 18.sp;
+double header = 24.sp;
+
+// Font Colors
+const ktextPrimary = kPrimaryColor;
+const ktextLight = Colors.white;
+const ktextDark = Colors.black54;
 
 final otpInputDecoration = InputDecoration(
   contentPadding:

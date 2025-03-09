@@ -1,7 +1,6 @@
-// ignore: file_names, unused_import
-import 'package:flutter/material.dart';
-
 // ignore: camel_case_types
+// ignore_for_file: file_names
+
 class Size {
   final int id;
   final String images;

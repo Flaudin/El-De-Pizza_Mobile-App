@@ -1,5 +1,6 @@
 import 'package:eldepizza/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../size_config.dart';
 
@@ -21,11 +22,11 @@ class SizeCard extends StatelessWidget {
     return GestureDetector(
       onTap: onselect as void Function()?,
       child: Container(
-        height: getProportionateScreenHeight(120),
-        width: getProportionateScreenWidth(106),
+        height: 100.h,
+        width: 100.w,
         decoration: BoxDecoration(
-            color: const Color(0xFFE0E0E0),
-            borderRadius: BorderRadius.circular(10),
+            color: isSelect ? kPrimaryColor : const Color(0xFFE0E0E0),
+            borderRadius: BorderRadius.circular(10.r),
             border: Border.all(
                 color: isSelect ? kPrimaryColor : Colors.transparent)),
         child: Column(
@@ -37,7 +38,11 @@ class SizeCard extends StatelessWidget {
                   vertical: getProportionateScreenWidth(3.5)),
               child: Image.asset(image),
             ),
-            Text(size)
+            Text(
+              size,
+              style: TextStyle(
+                  fontSize: sm, color: isSelect ? Colors.white : kTextColor),
+            )
           ],
         ),
       ),

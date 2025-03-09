@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../size_config.dart';
 import '../../home/home_screen.dart';
@@ -17,7 +18,11 @@ class CustomBackIcon extends StatelessWidget {
           onPressed: () {
             Navigator.pushNamed(context, HomeScreen.routeName);
           },
-          icon: Image.asset('android/assets/icons/CustomBack.png')),
+          icon: Image.asset(
+            'android/assets/icons/CustomBack.png',
+            width: 24.w,
+            height: 24.h,
+          )),
     );
   }
 }
